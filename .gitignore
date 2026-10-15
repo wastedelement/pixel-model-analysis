@@ -1,0 +1,27 @@
+# Local data, generated runs, checkpoints, and caches
+data/
+finetuning/test_data/
+checkpoints/
+outputs/
+vendor/
+.cache/
+__pycache__/
+*.py[cod]
+*.log
+*.out
+*.err
+*.bin
+*.pt
+*.pth
+*.safetensors
+*.parquet
+*.arrow
+*.zip
+*.tgz
+*.tar.gz
+.env
+.env.*
+.DS_Store
+.ipynb_checkpoints/
+.venv/
+venv/

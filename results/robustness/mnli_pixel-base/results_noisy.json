@@ -1,0 +1,86 @@
+{
+  "dev_matched": {
+    "0.00": {
+      "accuracy": 0.622,
+      "mcc": 0.4328,
+      "num_text_patches_stats": {
+        "n": 2000,
+        "mean": 66.3
+      }
+    },
+    "0.05": {
+      "accuracy": 0.6085,
+      "mcc": 0.4137,
+      "num_text_patches_stats": {
+        "n": 2000,
+        "mean": 66.2
+      }
+    },
+    "0.10": {
+      "accuracy": 0.6105,
+      "mcc": 0.4188,
+      "num_text_patches_stats": {
+        "n": 2000,
+        "mean": 66.1
+      }
+    },
+    "0.20": {
+      "accuracy": 0.605,
+      "mcc": 0.4153,
+      "num_text_patches_stats": {
+        "n": 2000,
+        "mean": 65.9
+      }
+    },
+    "0.40": {
+      "accuracy": 0.5775,
+      "mcc": 0.385,
+      "num_text_patches_stats": {
+        "n": 2000,
+        "mean": 65.5
+      }
+    }
+  },
+  "dev_mismatched": {
+    "0.00": {
+      "accuracy": 0.6585,
+      "mcc": 0.4891,
+      "num_text_patches_stats": {
+        "n": 2000,
+        "mean": 70.6
+      }
+    },
+    "0.05": {
+      "accuracy": 0.6525,
+      "mcc": 0.4815,
+      "num_text_patches_stats": {
+        "n": 2000,
+        "mean": 70.4
+      }
+    },
+    "0.10": {
+      "accuracy": 0.639,
+      "mcc": 0.4641,
+      "num_text_patches_stats": {
+        "n": 2000,
+        "mean": 70.4
+      }
+    },
+    "0.20": {
+      "accuracy": 0.6295,
+      "mcc": 0.4539,
+      "num_text_patches_stats": {
+        "n": 2000,
+        "mean": 70.2
+      }
+    },
+    "0.40": {
+      "accuracy": 0.5905,
+      "mcc": 0.4111,
+      "num_text_patches_stats": {
+        "n": 2000,
+        "mean": 69.8
+      }
+    }
+  }
+}

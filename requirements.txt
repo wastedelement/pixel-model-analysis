@@ -1,0 +1,33 @@
+# Python 3.10; install a CUDA-compatible PyTorch build separately if necessary.
+# Core versions retained in the experiment environment (not a full lockfile).
+torch==2.2.2
+torchvision==0.17.2
+transformers==4.17.0
+datasets==2.14.6
+numpy==1.23.5
+# Compatibility bounds for older APIs, not recorded original version pins.
+huggingface-hub>=0.14,<0.26
+pandas<3
+pyarrow<21
+Pillow
+# PIXEL rendering/import dependencies. Native Pango/Cairo libraries are also required.
+pygame
+pycairo
+PyGObject
+manimpango
+fonttools
+bs4
+matplotlib
+nltk
+opencv-python-headless<4.12
+pyyaml
+scipy
+seqeval
+scikit-learn
+spacy
+submitit
+wandb
+# PIXEL source itself must be obtained separately; see README.md.
+
+# Optional figure export
+reportlab

@@ -12,6 +12,16 @@ sys.path.insert(0, str(ROOT))
 import run_experiment
 
 
+def release_files():
+    excluded = {'.git', '__pycache__', 'outputs', 'data', 'checkpoints',
+                'vendor', '.cache', '.venv', 'venv'}
+    for path in ROOT.rglob('*'):
+        if not path.is_file() or excluded.intersection(path.relative_to(ROOT).parts):
+            continue
+        if path.suffix in ('.py', '.md', '.txt', '.json') or path.name == '.gitignore':
+            yield path
+
+
 class ReleaseTests(unittest.TestCase):
     def args(self, **updates):
         values = dict(experiment='mnli-lr', model='pixel-base', task='mnli',
@@ -20,8 +30,9 @@ class ReleaseTests(unittest.TestCase):
         return argparse.Namespace(**values)
 
     def test_all_python_sources_parse(self):
-        for path in ROOT.rglob('*.py'):
-            ast.parse(path.read_text(), filename=str(path.relative_to(ROOT)))
+        for path in release_files():
+            if path.suffix == '.py':
+                ast.parse(path.read_text(), filename=str(path.relative_to(ROOT)))
 
     def test_lr_schedule_does_not_collapse_to_observation_window(self):
         for model in ('bert', 'pixel-base'):
@@ -57,12 +68,11 @@ class ReleaseTests(unittest.TestCase):
             self.assertEqual(sum(r['success'] for r in data['mnli_lr_pixel'] if r['lr']==rate),0)
 
     def test_no_private_paths_or_host_recording(self):
-        for path in ROOT.rglob('*'):
-            if path.is_file():
-                content = path.read_text()
-                for forbidden in ('/'+'Users/', '/'+'public/', '/'+'home/',
-                                  'gethost'+'name(', 'platform.'+'node('):
-                    self.assertNotIn(forbidden, content, str(path.relative_to(ROOT)))
+        for path in release_files():
+            content = path.read_text()
+            for forbidden in ('/'+'Users/', '/'+'public/', '/'+'home/',
+                              'gethost'+'name(', 'platform.'+'node('):
+                self.assertNotIn(forbidden, content, str(path.relative_to(ROOT)))
 
 
 if __name__ == '__main__':
